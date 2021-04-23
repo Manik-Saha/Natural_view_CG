@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1618983476 source:d:\computer graphics ( cm )\naturalview\main.cpp
+1619184911 source:d:\computer graphics ( cm )\naturalview\main.cpp
+	<iostream>
 	<cstdio>
 	<GL/gl.h>
 	<GL/glut.h>

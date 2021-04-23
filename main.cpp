@@ -1,3 +1,4 @@
+#include<iostream>
 #include <cstdio>
 #include<GL/gl.h>
 #include <GL/glut.h>
@@ -5,14 +6,114 @@
 #include <math.h>
 # define PI 3.14159265358979323846
 
+using namespace std;
+
 GLfloat position = 0.0f;
 GLfloat position2 = 0.0f;
 GLfloat position3 = 0.0f;
 GLfloat position4 = 0.0f;
 GLfloat speed = 0.01f;
 GLfloat speed1 = 0.01f;
-float rain = 0.0f;
+float rain = 0.00;
+bool rainFlag = false;
+GLfloat m1 = 0.01f;
+GLfloat m2 = 0.0f;
 
+
+void DrawCircle(float cx, float cy, float r, int num_segments , float f) {
+
+	glBegin(GL_TRIANGLE_FAN);
+	for (int i = 0; i < num_segments; i++)
+	{
+		float theta = (f * 3.1416f * float(i) )/ float(num_segments);//get current angle
+
+		float x = r * cosf(theta);//calculate x
+		float y = r * sinf(theta);//calculate y
+
+		glVertex2f(x + cx, y + cy);//output vertex
+
+	}
+	glEnd();
+
+}
+
+void man()
+{
+    glColor3ub(255, 204, 102);
+    DrawCircle(-.63f, .025f, .0175f, 555, 2.0f);
+    glColor3ub(51, 51, 0);
+    DrawCircle(-.63f, .025f, .017f, 555, 1.0f);
+
+   glBegin(GL_QUADS);
+   glColor3ub(255, 255, 102);
+   glVertex2f(-0.61f, -0.1f);
+   glVertex2f(-0.65f, -0.1f);
+   glVertex2f(-0.65f, 0.0f);
+   glVertex2f(-0.61f, 0.0f);
+   glEnd();
+
+   glBegin(GL_QUADS);
+   glColor3ub(255, 204, 102);
+   glVertex2f(-0.61f, -0.02f);
+   glVertex2f(-0.59f, -0.025f);
+   glVertex2f(-0.59f, -0.03f);
+   glVertex2f(-0.61f, -0.025f);
+   glEnd();
+
+   glBegin(GL_QUADS);
+   glColor3ub(255, 204, 102);
+   glVertex2f(-0.61f, -0.035f);
+   glVertex2f(-0.59f, -0.045f);
+   glVertex2f(-0.59f, -0.04f);
+   glVertex2f(-0.61f, -0.045f);
+   glEnd();
+
+   glBegin(GL_QUADS);
+   glColor3ub(255, 204, 102);
+   glVertex2f(-0.625f, 0.0f);
+   glVertex2f(-0.635f, 0.0f);
+   glVertex2f(-0.635f, 0.015f);
+   glVertex2f(-0.625f, 0.015f);
+   glEnd();
+
+   glBegin(GL_QUADS);
+   glColor3ub(51, 51, 0);
+   glVertex2f(-0.615f, -0.1f);
+   glVertex2f(-0.625f, -0.1f);
+   glVertex2f(-0.625f, -0.15f);
+   glVertex2f(-0.615f, -0.15f);
+   glEnd();
+
+
+   glBegin(GL_QUADS);
+   glColor3ub(51, 51, 0);
+   glVertex2f(-0.635f, -0.1f);
+   glVertex2f(-0.645f, -0.1f);
+   glVertex2f(-0.645f, -0.15f);
+   glVertex2f(-0.635f, -0.15f);
+   glEnd();
+
+
+
+   glBegin(GL_LINES);
+   glColor3ub(255, 204, 102);
+   glVertex2f(-0.64f, -0.15f);
+   glVertex2f(-0.64f, -0.16f);
+
+   glVertex2f(-0.64f, -0.16f);
+   glVertex2f(-0.63f, -0.16f);
+   glEnd();
+
+   glBegin(GL_LINES);
+   glColor3ub(255, 204, 102);
+   glVertex2f(-0.62f, -0.15f);
+   glVertex2f(-0.62f, -0.16f);
+
+   glVertex2f(-0.62f, -0.16f);
+   glVertex2f(-0.61f, -0.16f);
+   glEnd();
+
+}
 
 void update2(int value) {
 
@@ -51,26 +152,6 @@ void update(int value) {
 
 
 	glutTimerFunc(100, update, 0);
-}
-
-
-
-
-void DrawCircle(float cx, float cy, float r, int num_segments , float f) {
-
-	glBegin(GL_TRIANGLE_FAN);
-	for (int i = 0; i < num_segments; i++)
-	{
-		float theta = (f * 3.1416f * float(i) )/ float(num_segments);//get current angle
-
-		float x = r * cosf(theta);//calculate x
-		float y = r * sinf(theta);//calculate y
-
-		glVertex2f(x + cx, y + cy);//output vertex
-
-	}
-	glEnd();
-
 }
 
 void river()
@@ -1219,8 +1300,8 @@ glBegin(GL_TRIANGLE_FAN);
 }
 
 void rainy_day(int rain){
-        rain += 0.01f;
-
+        /*rain += 0.01f;
+        if(rainFlag){
         glBegin(GL_POINTS);
         for(int i=1;i<=1000;i++)
         {
@@ -1237,7 +1318,234 @@ void rainy_day(int rain){
         glutTimerFunc(5, rainy_day, 0);
 
         glFlush();
+        }*/
+
+        glBegin(GL_POINTS);
+                    glBegin(GL_LINES);
+            glColor3f(1.0, 1.0, 1.0);
+            glVertex2d(0.0f,0.0f);
+            glVertex2d(.3,1.12);
+            glEnd();
+
 }
+
+void bananaTree_leaf(){
+glBegin(GL_QUADS);
+glColor3ub(102,51,0);
+glVertex2f(-0.12f, 0.65f);
+glVertex2f(-0.14f, 0.65f);
+glVertex2f(-0.18f, 0.55f);
+glVertex2f(-0.16f, 0.55f);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub(102,51,0);
+glVertex2f(-0.22f, 0.65f);
+glVertex2f(-0.18f, 0.55f);
+glVertex2f(-0.20f, 0.55f);
+glVertex2f(-0.24f, 0.65f);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub(0,100,0);
+glVertex2f(-0.09f, 0.62f);
+glVertex2f(-0.15f, 0.62f);
+glVertex2f(-0.03f, 0.35f);
+glVertex2f(0.03f, 0.35f);
+glEnd();
+
+glBegin(GL_TRIANGLES);
+glColor3ub(102,51,0);
+glVertex2f(-0.12f, 0.65f);
+glVertex2f(-0.14f, 0.65f);
+glVertex2f(0.00f, 0.35f);
+glEnd();
+
+glBegin(GL_QUADS);
+glColor3ub(0,100,0);
+glVertex2f(-0.27f, 0.62f);
+glVertex2f(-0.21f, 0.62f);
+glVertex2f(-0.34f, 0.35f);
+glVertex2f(-0.40f, 0.35f);
+glEnd();
+
+glBegin(GL_TRIANGLES);
+glColor3ub(102,51,0);
+glVertex2f(-0.22f, 0.65f);
+glVertex2f(-0.24f, 0.65f);
+glVertex2f(-0.37f, 0.35f);
+glEnd();
+}
+
+void banana_tree(){
+glBegin(GL_QUADS);
+glColor3ub(102,51,0);
+glVertex2f(-0.20f, 0.58f);
+glVertex2f(-0.20f, 0.15f);
+glVertex2f(-0.16f, 0.15f);
+glVertex2f(-0.16f, 0.58f);
+glEnd();
+
+glBegin(GL_TRIANGLES);
+glColor3ub(102,51,0);
+glVertex2f(-0.16f, 0.58f);
+glVertex2f(-0.20f, 0.58f);
+glVertex2f(-0.18f, 0.63f);
+glEnd();
+
+glPushMatrix();
+glTranslatef(-.09f,0.14f,0.0f);
+glScalef(.5,.5,0);
+//glRotatef(0.5,0.5,0.5,1.0);
+bananaTree_leaf();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(-.09f,0.30f,0.0f);
+glScalef(.5,.5,0);
+bananaTree_leaf();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(-.09f,0.10f,0.0f);
+glScalef(.5,.5,0);
+bananaTree_leaf();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(-.09f,0.06f,0.0f);
+glScalef(.5,.5,0);
+bananaTree_leaf();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(-.09f,0.26f,0.0f);
+glScalef(.5,.5,0);
+bananaTree_leaf();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(-.09f,0.22f,0.0f);
+glScalef(.5,.5,0);
+bananaTree_leaf();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(-.09f,0.18f,0.0f);
+glScalef(.5,.5,0);
+bananaTree_leaf();
+glPopMatrix();
+
+
+}
+
+
+
+void night_view(){
+	glClear(GL_COLOR_BUFFER_BIT);
+    glColor3b(1,0,0);
+    sky();
+pahar();
+glPushMatrix();
+glTranslatef(0.0f,position3,0.f);
+glColor3ub(255, 115, 15);
+DrawCircle(0.0f,.4f,.2f,490,1.0f);
+glPopMatrix();
+green();
+
+Khor();
+river();
+glPushMatrix();
+glTranslatef(position4,0.0f,0.f);
+deow();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(-1.14f,0.15f,0.0f);
+tree();
+glPopMatrix();
+
+baar();
+tree1();
+
+glPushMatrix();
+glTranslatef(-1.2f,0.08f,0.0f);
+tree();
+glPopMatrix();
+
+house();
+glPushMatrix();
+glTranslatef(.00f,0.05f,0.0f);
+banana_tree();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(.6f,0.05f,0.0f);
+banana_tree();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(0.5,0.03f,0.f);
+house();
+glPopMatrix();
+
+
+
+glPushMatrix();
+glTranslatef(-.15f,0.2f,0.f);
+tree();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(1.05f,0.1f,0.f);
+house();
+glPopMatrix();
+
+
+
+glPushMatrix();
+glTranslatef(position,0.0f,0.f);
+boat1();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(position2,0.25f,0.f);
+boat1();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(position2,0.0f,0.f);
+bird();
+glPopMatrix();
+glPushMatrix();
+glTranslatef(1.75f,0.07f,0.f);
+tree1();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(1.67f,0.05f,0.f);
+house();
+glPopMatrix();
+
+if(position3<=0.2)
+{
+    position3+=0.002f;
+
+}
+
+if(position4<=0.0)
+{
+    position4+=0.009f;
+
+}
+else
+    {
+    position4-=0.009f;
+}
+
+   glFlush();
+}
+
 void display() {
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -1274,17 +1582,27 @@ tree();
 glPopMatrix();
 
 house();
-
-
 glPushMatrix();
-glTranslatef(0.02,0.01f,0.f);
-tree2();
+glTranslatef(.00f,0.05f,0.0f);
+banana_tree();
 glPopMatrix();
+
 glPushMatrix();
-glTranslatef(0.5,0.1f,0.f);
+glTranslatef(.6f,0.05f,0.0f);
+banana_tree();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(0.5,0.03f,0.f);
 house();
 glPopMatrix();
 
+
+
+glPushMatrix();
+glTranslatef(-.15f,0.2f,0.f);
+tree();
+glPopMatrix();
 
 glPushMatrix();
 glTranslatef(1.05f,0.1f,0.f);
@@ -1311,19 +1629,22 @@ glPushMatrix();
 glTranslatef(1.75f,0.07f,0.f);
 tree1();
 glPopMatrix();
+
 glPushMatrix();
 glTranslatef(1.67f,0.05f,0.f);
 house();
 glPopMatrix();
 
 glPushMatrix();
-glTranslatef(-.53f,0.05f,0.f);
-tree();
+glTranslatef(m1,0.11f,0.f);
+glScaled(1.3f,1.7f,0.f);
+//man();
 glPopMatrix();
 
 glPushMatrix();
-glTranslatef(-.75f,0.05f,0.f);
-tree();
+glTranslatef(m2,0.11f,0.f);
+glScaled(1.3f,1.7f,0.f);
+//man2();
 glPopMatrix();
 
 if(position3<=0.2)
@@ -1342,10 +1663,31 @@ else
     position4-=0.009f;
 }
 
+if(m1<=1.9)
+  {
+        m1+=0.009f;
+  }
+   else{
+    //i = 0.0f;
+    //j = 0.0f;
+//s=-0.0f;
+    //k=0.0f;
+   m1=-1.0f;
+  }
+
+
+  if(m2>=0.0f)
+  {
+        m2-=0.009f;
+  }
+   else{
+
+   m2=1;
+
    glFlush();
 }
 
-
+}
 void handleMouse(int button, int state, int x, int y) {
 	if (button == GLUT_LEFT_BUTTON)
 	{
@@ -1391,19 +1733,21 @@ glutPostRedisplay();
 void handleKeypress(unsigned char key, int x, int y) {
 	switch (key) {
 case 'r':
-rainy_day(rain) ;
+    rainFlag = true;
+       rainy_day(rain) ;
    break;
-case 'w':
-    speed = 0.1f;
+case 'n':
+        glutDisplayFunc(night_view);
     break;
-glutPostRedisplay();
-	}}
+default:
+	break;
+}}
 
 
 int main(int argc, char** argv) {
    glutInit(&argc, argv);
    glutInitWindowSize(1020, 720);
-   glutInitWindowPosition(50, 50);
+   glutInitWindowPosition(350, 50);
    glutCreateWindow("Beautiful Village Scenario");
    glutDisplayFunc(display);
 
