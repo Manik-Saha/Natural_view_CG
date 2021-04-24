@@ -1,9 +1,11 @@
 # depslib dependency file v1.0
-1619184911 source:d:\computer graphics ( cm )\naturalview\main.cpp
+1619240492 source:d:\computer graphics ( cm )\project\main.cpp
 	<iostream>
 	<cstdio>
 	<GL/gl.h>
 	<GL/glut.h>
+	<stdlib.h>
+	<stdio.h>
 	<windows.h>
 	<math.h>
 
@@ -224,4 +226,14 @@
 
 1341006774 c:\program files (x86)\codeblocks\mingw\include\math.h
 	<_mingw.h>
+
+1341006776 c:\program files (x86)\codeblocks\mingw\include\stdio.h
+	<_mingw.h>
+	<stddef.h>
+	<stdarg.h>
+	<sys/types.h>
+
+1341006780 c:\program files (x86)\codeblocks\mingw\include\sys\types.h
+	<_mingw.h>
+	<stddef.h>
 
