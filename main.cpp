@@ -81,7 +81,25 @@ void DrawCircle(float cx, float cy, float r, int num_segments , float f) {
 	glEnd();
 
 }
+void cloud()
+{
+     glColor3ub(255, 255, 255);
+    DrawCircle(0.26f,0.9f,0.06f,300,2.0f);
+    DrawCircle(0.35f,0.95f,0.06f,300,2.0f);
+    DrawCircle(0.35f,0.85f,0.06f,300,2.0f);
+    DrawCircle(0.43f,0.9f,0.06f,300,2.0f);
 
+    DrawCircle(-0.26f,0.9f,0.06f,300,2.0f);
+    DrawCircle(-0.35f,0.95f,0.06f,300,2.0f);
+    DrawCircle(-0.35f,0.85f,0.06f,300,2.0f);
+    DrawCircle(-0.43f,0.9f,0.06f,300,2.0f);
+
+
+
+
+
+
+}
 void river()
 {
 
@@ -100,6 +118,7 @@ void river()
 }
 void deow()
 {
+
 glBegin(GL_QUADS);
     glColor3ub(200, 210, 250);
  glVertex2f(-1.00f, -0.48f);
@@ -185,7 +204,33 @@ void sky()
 
 
 }
+void nsky()
+{
+    glBegin(GL_QUADS);
+    glColor3ub(20, 20, 31);
+    glVertex2f(-1.0f, 0.6f);
+    glVertex2f(1.0f, 0.6f);
+    glVertex2f(1.0f, 1.0f);
+    glVertex2f(-1.0f,1.0f);
 
+   glEnd();
+
+
+
+}
+void nstar()
+{
+
+ glColor3ub(255, 255, 255);
+  DrawCircle(.1f,.8f,.008f,200,2);
+  DrawCircle(-0.1f,0.82f,0.008f,200,2);
+  DrawCircle(-0.3f,0.85f,0.008f,200,2);
+  DrawCircle(-0.5f,0.9f,0.008f,200,2);
+  DrawCircle(-0.6f,0.7f,0.008f,200,2);
+  DrawCircle(0.5f,0.7f,0.008f,200,2);
+
+
+}
 void bird()
 {
        int i;
@@ -1017,7 +1062,7 @@ void man()
     DrawCircle(-.63f, .025f, .017f, 555, 1.0f);
 
    glBegin(GL_QUADS);
-   glColor3ub(255, 255, 102);
+   glColor3ub(179, 179, 0);
    glVertex2f(-0.61f, -0.1f);
    glVertex2f(-0.65f, -0.1f);
    glVertex2f(-0.65f, 0.0f);
@@ -1094,7 +1139,7 @@ void man2()
     DrawCircle(-.63f, .025f, .017f, 555, 1.0f);
 
    glBegin(GL_QUADS);
-   glColor3ub(255, 255, 102);
+   glColor3ub(230, 92, 0);
    glVertex2f(-0.61f, -0.1f);
    glVertex2f(-0.65f, -0.1f);
    glVertex2f(-0.65f, 0.0f);
@@ -1451,60 +1496,111 @@ glBegin(GL_TRIANGLE_FAN);
 
 
 }
+void boat()
+{
+     glBegin(GL_QUADS);
+     glColor3ub(153, 77, 0);
+      glVertex2f(-0.25f, -0.7f);
+      glVertex2f(-0.24f, -0.695f);
+      glVertex2f(-0.07f, -0.95f);
+
+       glVertex2f(-0.08f, -0.96f);
+
+     glEnd();
+
+    glBegin(GL_POLYGON);
+	glColor3ub(0,0,0);
+
+	//
+	glVertex2f(-0.3f, -0.95f);
+	glVertex2f(-0.1f, -0.8f);
+	glVertex2f(-0.3f, -0.90f);
+	glVertex2f(-0.6f, -0.90f);
+	//glVertex2f(-0.8f, -0.80f);
+   glVertex2f(-0.6f, -0.95f);
+
+glEnd();
+
+
+glBegin(GL_POLYGON);
+	glColor3ub(0,0,0);
+
+	glVertex2f(-0.6f, -0.95f);
+	glVertex2f(-0.3f, -0.95f);
+	//glVertex2f(-0.1f, -0.8f);
+	glVertex2f(-0.3f, -0.90f);
+	glVertex2f(-0.6f, -0.90f);
+	glVertex2f(-0.8f, -0.80f);
+
+glEnd();
+
+   glBegin(GL_POLYGON);
+	glColor3ub(255, 153, 0);
+
+	glVertex2f(-0.6f, -0.9f);
+	glVertex2f(-0.3f, -0.9f);
+	glVertex2f(-0.3f, -0.80f);
+	glVertex2f(-0.6f, -0.80f);
+
+
+glEnd();
+
+  glBegin(GL_TRIANGLE_FAN);
+	glColor3ub(204, 102, 0);
+	glVertex2f(-0.6f,-0.9f);
+	glVertex2f(-0.5f,-0.9f);
+	glVertex2f(-0.53f,-0.845f);
+	glVertex2f(-0.56f,-0.81f);
+	glVertex2f(-0.6f,-0.8f);
+	glVertex2f(-0.645f,-0.81f);
+	glVertex2f(-0.7f,-0.85f);
+	glEnd();
+
+glBegin(GL_TRIANGLE_FAN);
+	glColor3ub(255, 153, 0);
+
+	glVertex2f(-0.3f,-0.9f);
+	glVertex2f(-0.225f,-0.865f);
+	glVertex2f(-0.23f,-0.85f);
+	glVertex2f(-0.25f,-0.83f);
+
+	glVertex2f(-0.3f,-0.8f);
+
+	glEnd();
+
+
+
+
+}
 
 void mountain(){
-glBegin(GL_TRIANGLES);          // Each set of 3 vertices form a triangle
-      glColor3f(0.0f, 1.0f, 0.0f); // Green
-      glVertex2f(-1.1f, 0.5f);
-      glVertex2f(-0.8f, 0.9f);
-      glVertex2f(-0.7f, 0.5f);
+      glColor3ub(0, 128, 43);
+      DrawCircle(-.8f,.6f,0.2f,220,1);
+      DrawCircle(-.4f,.6f,0.2f,520,1);
+      DrawCircle(.4f,.6f,0.2f,520,1);
+      glBegin(GL_TRIANGLES);          // Each set of 3 vertices form a triangle
+      glColor3ub(0, 128, 43); // Green
+      glVertex2f(-0.8f, 0.5f);
+      glVertex2f(-0.5f, 0.9f);
+      glVertex2f(-0.4f, 0.5f);
 
-       glColor3f(0.0f, 1.0f, 0.0f); // Green
-      glVertex2f(-0.85f, 0.5f);
-       glColor4f(1.0f, 1.0f, 0.0f, 0.0f);//yellow
-      glVertex2f(-0.65f, 0.9f);
-      glVertex2f(-0.5f, 0.5f);
 
-     glColor3f(0.0f, 1.0f, 0.0f); // Green
-      glVertex2f(-0.7f, 0.5f);
-      glVertex2f(-0.5f, 0.8f);
-     glVertex2f(-0.3f, 0.5f);
-
-          glColor3f(0.0f, 1.0f, 0.0f); // Green
-      glVertex2f(-0.5f, 0.5f);
-      glVertex2f(-0.2f, 0.8f);
-     glVertex2f(0.1f, 0.5f);
-
-          glColor3f(0.0f, 1.0f, 0.0f); // Green
-      glVertex2f(-0.3f, 0.5f);
-      glVertex2f(0.0f, 0.9f);
-     glVertex2f(0.4f, 0.5f);
-
-      glColor3f(0.0f, 1.0f, 0.0f); // Green
-      glVertex2f(0.1f, 0.5f);
-      glVertex2f(0.5f, 1.0f);
-     glVertex2f(0.8f, 0.5f);
+      glBegin(GL_TRIANGLES);          // Each set of 3 vertices form a triangle
+      glColor3ub(0, 128, 43); // Green
+      glVertex2f(-0.9f, 0.5f);
+      glVertex2f(-0.7f, 0.9f);
+      glVertex2f(-0.6f, 0.5f);
 
 
 
-       glColor3f(0.0f, 1.0f, 0.0f); // Green
-      glVertex2f(1.1f, 0.5f);
-      glVertex2f(0.8f, 0.9f);
-      glVertex2f(0.7f, 0.5f);
+     glBegin(GL_TRIANGLES);          // Each set of 3 vertices form a triangle
+      glColor3ub(0, 128, 43); // Green
+      glVertex2f(0.15f, 0.5f);
+      glVertex2f(0.5f, 0.9f);
+      glVertex2f(0.5f, 0.5f);
+     glEnd();
 
 
-      glColor3f(0.0f, 1.0f, 0.0f); // Green
-      glVertex2f(0.85f, 0.5f);
-      glColor4f(1.0f, 1.0f, 0.0f, 0.0f);//yellow
-       glVertex2f(0.65f, 0.9f);
-        glVertex2f(0.5f, 0.5f);
-
-      glColor3f(0.0f, 1.0f, 0.0f); // Green
-      glVertex2f(0.7f, 0.5f);
-      glVertex2f(0.5f, 0.8f);
-       glVertex2f(0.3f, 0.5f);
-
-   glEnd();
 }
 
 void rainy_day(int value){
@@ -1549,17 +1645,35 @@ void rainy_day(int value){
 void night_view(){
 	glClear(GL_COLOR_BUFFER_BIT);
     glColor3b(1,0,0);
-sky();
-mountain();
+nsky();
+
+nstar();
+
 glPushMatrix();
-glTranslatef(0.0f,position3,0.f);
-glColor3ub(255, 115, 15);
-DrawCircle(0.0f,.4f,.2f,490,1.0f);
+glTranslatef(0.2,0.1f,0.f);
+nstar();
 glPopMatrix();
+
 glPushMatrix();
+glTranslatef(-0.2,-0.05f,0.f);
+nstar();
+glPopMatrix();
+
+
+glPushMatrix();
+glTranslatef(-0.8f,0.1f,0.f);
+nstar();
+glPopMatrix();
+//mountain();
+glPushMatrix();
+glTranslatef(0.32f,0.0f,0.f);
+glColor3ub(255, 255, 255);
+DrawCircle(0.2f,.8f,.12f,490,2.0f);
+glPopMatrix();
+/*glPushMatrix();
 glTranslatef(position2,0.0f,0.f);
 bird();
-glPopMatrix();
+glPopMatrix();*/
 green();
 
 Khor();
@@ -1612,13 +1726,13 @@ house();
 glPopMatrix();
 
 glPushMatrix();
-glTranslatef(position,0.0f,0.f);
-boat1();
+glTranslatef(.8f,0.5f,0.f);
+boat();
 glPopMatrix();
 
 glPushMatrix();
-glTranslatef(position2,0.25f,0.f);
-boat1();
+glTranslatef(-0.5f,0.5f,0.f);
+boat();
 glPopMatrix();
 
 glPushMatrix();
@@ -1647,10 +1761,23 @@ glFlush();
 }
 
 void display() {
+
 glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 glClear(GL_COLOR_BUFFER_BIT);
 
 sky();
+
+glPushMatrix();
+glTranslatef(position,0.0f,0.f);
+cloud();
+glPopMatrix();
+
+glPushMatrix();
+glTranslatef(position2,0.0f,0.f);
+cloud();
+glPopMatrix();
+
+
 mountain();
 
 glPushMatrix();
@@ -1667,7 +1794,9 @@ glPopMatrix();
 green();
 
 Khor();
+
 river();
+
 glPushMatrix();
 glTranslatef(position4,0.0f,0.f);
 deow();
@@ -1687,6 +1816,7 @@ tree();
 glPopMatrix();
 
 tree1();
+
 house();
 
 glPushMatrix();
@@ -1729,6 +1859,7 @@ glPushMatrix();
 glTranslatef(1.75f,0.07f,0.f);
 tree1();
 glPopMatrix();
+
 glPushMatrix();
 glTranslatef(1.67f,0.05f,0.f);
 house();
@@ -1739,11 +1870,13 @@ glTranslatef(m1,0.11f,0.f);
 glScaled(1.3f,1.7f,0.f);
 man();
 glPopMatrix();
+
 glPushMatrix();
 glTranslatef(m2,0.11f,0.f);
 glScaled(1.3f,1.7f,0.f);
 man2();
 glPopMatrix();
+
 
 if(position3<=0.2)
 {
@@ -1756,10 +1889,14 @@ if(position4<=0.0)
     position4+=0.009f;
 
 }
+
+
 else
     {
     position4-=0.009f;
 }
+
+
 if(m1<=1.9)
   {
         m1+=0.009f;
@@ -1832,21 +1969,34 @@ void handleKeypress(unsigned char key, int x, int y) {
 case 'r':
     rainFlag = true;
 rainy_day(rain);
+PlaySound(TEXT("rain-07.wav"), NULL, SND_ASYNC|SND_FILENAME|SND_LOOP);
+//
     break;
 case 'n':
 glutDisplayFunc(night_view);
+PlaySound(TEXT("night.wav"), NULL, SND_ASYNC|SND_FILENAME|SND_LOOP);
+
     break;
     case 'd':
 glutDisplayFunc(display);
+PlaySound(TEXT("N_1.wav"), NULL, SND_ASYNC|SND_FILENAME|SND_LOOP);
+
     break;
     case 's':
     rainFlag = false;
+    PlaySound(TEXT("N_1.wav"), NULL, SND_ASYNC|SND_FILENAME|SND_LOOP);
     break;
 glutPostRedisplay();
 	}}
 
 
 int main(int argc, char** argv) {
+
+    cout<<"Press 'n' for Night mode"<<endl;
+    cout<<"Press 's' for Stop Rain mode"<<endl;
+    cout<<"Press 'r' for Rain mode"<<endl;
+    cout<<"Press 'd' for Day mode"<<endl;
+
    glutInit(&argc, argv);
    glutInitWindowSize(1020, 720);
    glutInitWindowPosition(300, 50);

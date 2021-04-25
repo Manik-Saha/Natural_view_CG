@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1619240492 source:d:\computer graphics ( cm )\project\main.cpp
+1619295907 source:c:\users\asus strix\onedrive\desktop\download\computer graphics\cg_project(beautiful_village_scenario)\main.cpp
 	<iostream>
 	<cstdio>
 	<GL/gl.h>
@@ -236,4 +236,14 @@
 1341006780 c:\program files (x86)\codeblocks\mingw\include\sys\types.h
 	<_mingw.h>
 	<stddef.h>
+
+1619327237 source:d:\computer graphics ( cm )\cg_project(beautiful_village_scenario)\main.cpp
+	<iostream>
+	<cstdio>
+	<GL/gl.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<stdio.h>
+	<windows.h>
+	<math.h>
 
